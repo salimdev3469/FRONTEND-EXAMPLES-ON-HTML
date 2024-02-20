@@ -28,9 +28,10 @@ calc.addEventListener("click", (e) => {
         frame.addEventListener("animationend", () => {
             error.style.visibility = "visible";
             frame.classList.remove("shake");
-            e.preventDefault();
+            resultElement.textContent = ""; //if any time, user inputs a value which is not a number, this code clears the result representation and shows the error message
+            resultElement.classList.remove("display", "scale");
         });
-        
+        e.preventDefault();
         return;
     }
 
@@ -38,29 +39,35 @@ calc.addEventListener("click", (e) => {
         case '+':
             resultElement.textContent = `Result: ${inp1 + inp2}`;//updates the inner value of the label tag which have result class, doesnt look inside value inside of the html
             resultElement.classList.add("display");
+            resultElement.classList.add("scale");
+            
             error.style.visibility = "hidden";
             break;
         case '/':
             resultElement.classList.add("display"); //doesnt matter the orders of commands, it works
             resultElement.textContent = `Result: ${inp1 / inp2}`;
+            resultElement.classList.add("scale");
             error.style.visibility = "hidden";
             break;
         case '-':
             resultElement.textContent = `Result: ${inp1 - inp2}`;
             resultElement.classList.add("display");
+            resultElement.classList.add("scale");
             error.style.visibility = "hidden";
             break;
         case '*':
             resultElement.textContent = `Result: ${inp1 * inp2}`;
             resultElement.classList.add("display");
+            resultElement.classList.add("scale");
             error.style.visibility = "hidden";
             break;
         default:
             resultElement.textContent = "Invalid Operand";
             resultElement.classList.add("display");
+            resultElement.classList.add("scale");
             error.style.visibility = "hidden";
             break;
     }
-
-
 });
+
+

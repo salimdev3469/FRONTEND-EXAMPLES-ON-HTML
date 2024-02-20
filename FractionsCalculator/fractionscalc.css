@@ -47,6 +47,18 @@ body{
     display:block;
     margin-top:8px;
     display:none;
+    
+}
+.scale{
+    animation: scaling 0.4s ease-in-out;
+}
+@keyframes scaling {
+    0%{
+        transform:scale(1);
+    }
+    50%,100%{
+        transform:scale(1.04);
+    }
 }
 .inputs{
     margin-right: 10px;

@@ -3,7 +3,9 @@ const secinput = document.querySelector(".input2");
 const thirdinput = document.querySelector(".input3");
 const fourthinput = document.querySelector(".input4");
 
-const frame=document.querySelector(".container");
+const frame = document.querySelector(".container");
+
+const error = document.querySelector(".errormessage");
 
 const resultElement = document.querySelector(".result");
 
@@ -24,9 +26,11 @@ calc.addEventListener("click", (e) => {
     if (isNaN(var1) || isNaN(var2) || isNaN(var3) || isNaN(var4)) {
         frame.classList.add("shake");
         frame.addEventListener("animationend", () => {
+            error.style.visibility = "visible";
             frame.classList.remove("shake");
+            e.preventDefault();
         });
-        e.preventDefault();
+        
         return;
     }
 
@@ -34,24 +38,29 @@ calc.addEventListener("click", (e) => {
         case '+':
             resultElement.textContent = `Result: ${inp1 + inp2}`;//updates the inner value of the label tag which have result class, doesnt look inside value inside of the html
             resultElement.classList.add("display");
+            error.style.visibility = "hidden";
             break;
         case '/':
             resultElement.classList.add("display"); //doesnt matter the orders of commands, it works
             resultElement.textContent = `Result: ${inp1 / inp2}`;
+            error.style.visibility = "hidden";
             break;
         case '-':
-            resultElement.textContent = `Result: ${inp1- inp2}`;
+            resultElement.textContent = `Result: ${inp1 - inp2}`;
             resultElement.classList.add("display");
+            error.style.visibility = "hidden";
             break;
         case '*':
             resultElement.textContent = `Result: ${inp1 * inp2}`;
             resultElement.classList.add("display");
+            error.style.visibility = "hidden";
             break;
         default:
             resultElement.textContent = "Invalid Operand";
             resultElement.classList.add("display");
+            error.style.visibility = "hidden";
             break;
     }
 
- 
+
 });

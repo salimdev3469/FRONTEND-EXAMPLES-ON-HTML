@@ -1,0 +1,364 @@
+* {
+    background-color:whitesmoke;
+    box-sizing: border-box;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+/*ANİMASYONLU TEXT HEADER*****************/
+.animated-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 4em;
+    font-weight: 600;
+    min-width: 280px;
+}
+
+.animated-text span {
+    position: relative;
+}
+
+.animated-text span::before {
+    content: "Youtuber";
+    color: #0a5292;
+    animation: words 20s infinite;
+}
+
+.animated-text span::after {
+    content: "";
+    position: absolute;
+    width:calc(100% + 8px);
+    height: 100%;
+    background-color: whitesmoke;
+    border-left: 2px solid #0a5292;
+    right: -8px;
+    animation: cursor .8s infinite, typing 20s steps(14) infinite;
+}
+
+@keyframes cursor {
+    to {
+        border-left: 2px solid #ff7f5000;
+    }
+}
+
+@keyframes words {
+
+    0%,
+    20% {
+        content: "TEKNOLOJİDE LİDER";
+    }
+
+    21%,
+    40% {
+        content: "İLETİŞİMDE LİDER";
+    }
+
+    41%,
+    60% {
+        content: "SEKTÖRÜNDE LİDER";
+    }
+
+    61%,
+    80% {
+        content: "MÜŞTERİ MEMNUNİYETİNDE LİDER";
+    }
+
+    81%,
+    100% {
+        content: "TÜRKİYEDE LİDER";
+    }
+}
+
+@keyframes typing {
+
+    10%,
+    15%,
+    30%,
+    35%,
+    50%,
+    55%,
+    70%,
+    75%,
+    90%,
+    95% {
+        width: 0;
+    }
+
+    5%,
+    20%,
+    25%,
+    40%,
+    45%,
+    60%,
+    65%,
+    80%,
+    85% {
+        width: calc(100% + 8px);
+    }
+}
+
+/*****************************************/
+
+/*NAVBAR BÖLÜMÜ***************************/
+.logo {
+    background-image: url(logo-no-background.png);
+    background-size: cover;
+    background-position: center;
+    width: 15em;
+    height: auto;
+    margin: 0.5em 0.8em;
+
+}
+
+.navigasyon {
+    border: 0.1em solid black;
+    margin: 0;
+    height: 5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navbarcontainer{
+    position:fixed;
+}
+
+
+.navbar ul {
+    display: flex;
+    margin-right: 1.5em;
+    align-items: center;
+    height: -webkit-fill-available;
+}
+
+.navbar ul li {
+    margin-right: 1.5em;
+    list-style-type: none;
+}
+
+.navigasyon input {
+    border-radius: 0.8em;
+    border: 0.01em solid rgb(189, 189, 189);
+    height: 3em;
+    margin-top: 1.2em;
+    width: 30%;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: black;
+}
+
+.navbar a:hover {
+    
+    color:#0a5292;
+}
+
+.navbar a i {
+    display: inline;
+    padding: 0.4em;
+}
+
+/***********************************/
+
+/*BANNER SLIDER BÖLÜMÜ**********/
+
+.container {
+    width: 70%;
+    position:relative;
+    margin-top: 3em;
+    left:15%;
+    overflow:hidden;
+    border:0.19em solid #0a5292;
+    border-radius: 2em;
+    box-shadow:10px 25px 30px rgba(30,30,200,0.3);
+}
+
+.wrapper {
+    display: flex;
+    animation:slide 12s infinite;
+    scroll-behavior: smooth;
+}
+
+@keyframes slide{
+    0%{
+        transform: translateX(0);
+    }
+    25%{
+        transform: translateX(0);
+    }
+    30%{
+        transform: translateX(-100%);
+    }
+    50%{
+        transform: translateX(-100%);
+    }
+    55%{
+        transform: translateX(-200%);
+    }
+    75%{
+        transform: translateX(-200%);
+    }
+    80%{
+        transform: translateX(-300%);
+    }
+    100%{
+        transform: translateX(-300%);
+    }
+}
+
+.wrapper img {
+   
+    width: 100%;
+}
+
+/*******************************/
+
+/*BRANDS SLIDER CAROUSEL BÖLÜMÜ*/
+.karoselbanner{
+    width:100%;
+    text-align: center;
+    font-size: 3.2em;
+    margin-top: 2em;
+}
+.slider{
+    background-color: whitesmoke;
+    height:100px;
+    margin-top:1em;
+    overflow: hidden;
+    position: relative;
+    width: auto;
+    object-fit: contain;
+}
+.slider .slide-track{
+    animation:scroll 40s linear infinite;
+    display: flex;
+    width:calc(250px*14);
+}
+
+.slider .slide{
+    height:100px;
+    width:100%;
+}
+
+@keyframes scroll{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(calc(-250px*7));
+    }
+}
+
+/*******************************/
+
+/*ÖNE ÇIKAN ÜRÜNLER BÖLÜMÜ******/
+.onecikanurunler{
+    width:100%;
+    text-align: center;
+    font-size: 3.2em;
+    margin-top: 2em;
+}
+.product-grid {
+    padding:3em;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 sütunluk grid yapısı */
+    gap: 20px; /* Kartlar arasındaki boşluk */
+  }
+  
+  .product {
+    margin-top:1.8em;
+    border: 1px solid #ddd; /* Kartın dış çerçevesi */
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+  }
+  
+  .product img {
+    width: 100%; /* Resmin genişliğini kartın genişliğine uydur */
+    height: auto;
+    object-fit: contain;
+  }
+  
+  .product h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
+  
+  .product p {
+    font-size: 1.5em;
+    color: #0a5292;
+  }
+  
+  button {
+    background-color: #0a5292;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #012e55;
+  }
+  
+/*******************************/
+/*KATEGORİLER BÖLÜMÜ************/
+.kategoriler{
+    width:100%;
+    text-align: center;
+    font-size: 3.2em;
+    margin-top: 2em;
+}
+.categories{
+    padding:3em;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 4 sütunluk grid yapısı */
+    gap: 2em; /* Kartlar arasındaki boşluk */
+}
+
+.category{
+    width:100%;
+    height:5em;
+    border:0.1em solid grey;
+    border-radius: 15px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.kategoriaciklama{
+    text-decoration: none;
+    text-align: center;
+}
+/*******************************/
+
+
+/**********FOOTER***************/
+
+.footer{
+    width:100%;
+    background-color: #0a5292;
+    padding:1.5em;
+    height:10em;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:0.5em;
+}
+.footercontent{
+    background-color: #0a5292;
+    color:whitesmoke;
+}
+.footercontent i{
+    background-color: #0a5292;
+    margin:0.1em;
+}
+.footercontent img{
+    margin-bottom: 1em;
+    display: block;
+    width:6em;
+    height:6em;
+}
+/*******************************/
